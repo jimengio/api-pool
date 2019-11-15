@@ -1,27 +1,24 @@
-## Workflow
+## API Pool (WIP)
 
-> A project template based on TypeScript, React, immer, emotion, rex, ruled-router...
+> Small library to reuse same requests in the same time from React Hooks
 
 ### Usage
 
-Dev:
+TODO
 
-```bash
-yarn dll
-yarn dev
-```
+```ts
+// reuse same promise in 60s
+apiPool.config({
+  timeout: 60,
+});
 
-Compile library:
+// create resource with a key(in array)
+apiPool.getRequest(["materials", materialId], (options) => {
+  return getMaterial(materialId);
+});
 
-```bash
-yarn compile
-```
-
-Release:
-
-```bash
-yarn release
-# yarn serve
+// mark resource as outdated and deprecate promise
+apiPool.outdateResource(["materials", materialId]);
 ```
 
 ### Workflow
